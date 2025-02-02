@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cat Facts</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+        }
+
+        button:hover{
+            background-color: #367c39;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Cat Fact</h1>
+        <p id="factDisplay">Click the button to get a fact!</p>
+        <button id="factButton">Get Fact</button>
+    </div>
+    <script>
+        const facts = [
+            "Cats are crepuscular, which means they are most active during dawn and dusk.",
+            "A cat can jump up to six times its height.",
+            "Cats have a third eyelid, called a nictitating membrane, for extra protection.",
+            "The average cat sleeps for about 12-16 hours per day.",
+            "Cats use their whiskers to help them navigate and sense their surroundings.",
+            "A group of cats is called a clowder.",
+            "Cats can make over 100 different sounds, while dogs can only make about 10.",
+            "The oldest cat on record lived to be 38 years old.",
+            "Cats have a specialized tongue with tiny barbs called papillae, which help them groom themselves and strip meat from bones.",
+             "Unlike most mammals, cats cannot taste sweetness."
+        ];
+
+        const factDisplay = document.getElementById('factDisplay');
+        const factButton = document.getElementById('factButton');
+        let currentFactIndex = -1;
+
+
+        function displayNextFact() {
+            currentFactIndex = (currentFactIndex + 1) % facts.length;
+            factDisplay.textContent = facts[currentFactIndex];
+        }
+
+        factButton.addEventListener('click', displayNextFact);
+    </script>
+</body>
+</html>
